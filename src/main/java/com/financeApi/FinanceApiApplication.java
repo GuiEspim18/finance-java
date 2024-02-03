@@ -1,15 +1,9 @@
 package com.financeApi;
 
 import com.financeApi.principal.Principal;
-import com.financeApi.utils.auth.Auth;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 @SpringBootApplication
 public class FinanceApiApplication implements CommandLineRunner {

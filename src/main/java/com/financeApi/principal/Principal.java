@@ -1,13 +1,30 @@
 package com.financeApi.principal;
 
+import com.financeApi.services.ConsumeApiService;
+import com.financeApi.utils.auth.Auth;
 import com.financeApi.utils.consolePrint.Console;
+
+import java.util.Scanner;
 
 public class Principal {
 
-    public static void show() {
-        Console.title("Finance");
-        Console.divide();
+    final static private String KEY = "&apikey="+ Auth.getKey();
+    final static private String URL = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE";
+    static private  String symbol = "&symbol=";
+    final static private Scanner scanner = new Scanner(System.in);
 
+    public static void show() {
+        showMenu();
     }
+
+    private static void showMenu () {
+        Console.title("Finance");
+        System.out.print("Tap an action name: ");
+        symbol += scanner.nextLine().toUpperCase();
+        var result = ConsumeApiService.get(URL + symbol + KEY);
+        System.out.print(result);
+    }
+
+
 
 }
