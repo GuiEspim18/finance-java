@@ -1,5 +1,6 @@
 package com.financeApi;
 
+import com.financeApi.principal.Principal;
 import com.financeApi.utils.auth.Auth;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,18 +20,11 @@ public class FinanceApiApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		String key = Auth.getKey();
-		String symbol = "AAPL";
-		String url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&apikey=" + key;
-		HttpClient client = HttpClient.newHttpClient();
-		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
+		Principal.show();
+//		String key = Auth.getKey();
+//		String symbol = "AAPL";
+//		String url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&apikey=" + key;
 
-		try {
-			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-			System.out.println(response.body());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
  	}
 
 }
