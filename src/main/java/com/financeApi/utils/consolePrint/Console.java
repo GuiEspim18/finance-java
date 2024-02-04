@@ -33,7 +33,9 @@ public class Console {
         }
         String titleStr = setStringUnderline(difference/2) + title + setStringUnderline(difference/2);
         System.out.println(titleStr);
-        titleMaxLength = titleStr.length();
+        if (titleStr.length() > titleMaxLength) {
+            titleMaxLength = titleStr.length();
+        }
     }
 
     public static void title(String title, int maxLength) {
