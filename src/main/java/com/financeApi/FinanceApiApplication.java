@@ -15,10 +15,6 @@ public class FinanceApiApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 		Principal.show();
-//		String key = Auth.getKey();
-//		String symbol = "AAPL";
-//		String url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&apikey=" + key;
-
  	}
 
 }
