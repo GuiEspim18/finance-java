@@ -1,6 +1,8 @@
 package com.financeApi.principal;
 
+import com.financeApi.model.GlobalQuote;
 import com.financeApi.services.ConsumeApiService;
+import com.financeApi.services.ConvertService;
 import com.financeApi.utils.auth.Auth;
 import com.financeApi.utils.consolePrint.Console;
 
@@ -22,7 +24,8 @@ public class Principal {
         System.out.print("Tap an action name: ");
         symbol += scanner.nextLine().toUpperCase();
         var result = ConsumeApiService.get(URL + symbol + KEY);
-        System.out.print(result);
+        GlobalQuote globalQuote = ConvertService.convert(result, GlobalQuote.class);
+        System.out.print(globalQuote);
     }
 
 

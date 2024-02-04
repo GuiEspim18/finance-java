@@ -2,8 +2,9 @@ package com.financeApi.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.financeApi.utils.interfaces.IConverterService;
 
-public class ConvertService {
+public class ConvertService implements IConverterService {
 
     private final static ObjectMapper MAPPER = new ObjectMapper();
 
@@ -11,9 +12,8 @@ public class ConvertService {
         try {
             return MAPPER.readValue(json, providedClass);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
 }
